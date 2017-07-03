@@ -1,0 +1,6 @@
+if (pidof ncmpcpp >/dev/null); then
+    kill $(pidof ncmpcpp)
+else
+    urxvtc -name ncmpcpp -e /usr/bin/ncmpcpp
+fi
+exit 0

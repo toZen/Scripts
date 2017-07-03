@@ -1,0 +1,48 @@
+#!/bin/sh
+
+category=$(echo -e "Development\nGraphics\nNetwork\nTools\nSettings\nLogout" | dmenu -i -sb '#333' -nf '#999' -sf '#9df' -fn 'Terminus Re33:size=10' -p Category)
+
+case $category in
+
+        Development) proglist="Sublime-text-3\nXVim" ;;
+
+        Graphics) proglist="Gimp\nViewnior" ;;
+
+        Network) proglist="Vivaldi-snapshot\nThunderbird\nTelegram\nTransmission-daemon\nHexchat" ;;
+
+        Tools) proglist="nHtop\nMC\nRanger\nURxvt\nGparted" ;;
+
+        Settings) proglist="LXAppearance\nDconf-editor" ;;
+
+        Logout) proglist="XKill\nReboot\nPoweroff" ;;
+esac
+
+program=$(echo -e "$proglist" | dmenu -i -sb '#333' -nf '#999' -sf '#9df' -fn 'Terminus Re33:size=10' -p $category)
+case $program in
+# Development
+        Sublime-text-3) subl3 ;;
+        XVim) xvim ;;
+# Graphics
+        Gimp) gimp-2.8 ;;
+        Viewnior) viewnior ;;
+# Network
+        Vivaldi-snapshot) vivaldi-snapshot ;;
+        Thunderbird) thunderbird ;;
+        Telegram) xdg-open https://web.telegram.org/#/im ;;
+        Transmission-daemon) transd ;;
+        Hexchat) hexchat ;;
+# Tools
+        Htop) urxvtc -name htop -e htop ;;
+        MC) urxvtc -name mc -e mc ;;
+        Ranger) urxvtc -name ranger -e ranger ;;
+        URxvt) urxvtc ;;
+        Gparted) gksu gparted ;;
+# Settings
+        LXAppearance) lxappearance ;;
+        Oomox) oomox-gui ;;
+        Dconf-editor) dconf-editor ;;
+# Logout
+        XKill) killx ;;
+        Reboot) compreboot ;;
+        Poweroff) compdown ;;
+esac

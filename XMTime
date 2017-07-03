@@ -1,0 +1,9 @@
+#!/bin/sh
+DATA=`date "+%d.%m.%Y"`
+DAY=`date "+%A"`
+TIME=`date "+%H:%M"`
+if [[ $DAY = "Saturday" ]]; then echo '<fc=#3aa4db>'$DAY'</fc>' $DATA  '<fc=#3aa4db>'$TIME'</fc>'
+elif [[ $DAY = "Sunday" ]]; then echo '<fc=#3aa4db>'$DAY'</fc>' $DATA  '<fc=#3aa4db>'$TIME'</fc>'
+else echo $DAY $DATA  '<fc=#3aa4db>'$TIME'</fc>'
+fi
+exit 0
